@@ -1,0 +1,88 @@
+# Initialize empty lists and a dictionary to store student information
+students_list = []
+students_dict = {}
+
+# Define a function to add a student to the system
+def add_student():
+  # Prompt the user to input the name, age, and grade of a student
+  name = input("Enter the name of the student: ")
+  age = int(input("Enter the age of the student: "))
+  grade = int(input("Enter the grade of the student: "))
+  # Add the name to the students_list
+  students_list.append(name)
+  # Add the name and the corresponding information to the students_dict
+  students_dict[name] = [age, grade]
+  # Print a success message
+  print(f"Student {name} added successfully.")
+  # Print the items of the dictionary to view student details
+  print("Student details:")
+  for key, value in students_dict.items():
+    print(f"{key}: {value}")
+
+# Define a function to search for a student by their name
+def search_student():
+  # Prompt the user to enter the name of the student to search
+  name = input("Enter the name of the student to search: ")
+  # Check if the name is in the students_dict
+  if name in students_dict:
+    # Display the student's name, age, and grade
+    print(f"Student {name} found.")
+    print(f"Name: {name}")
+    print(f"Age: {students_dict[name][0]}")
+    print(f"Grade: {students_dict[name][1]}")
+  else:
+    # Print a message that the student is not found
+    print(f"Student {name} not found.")
+
+# Define a function to remove a student from the system
+def remove_student():
+  # Prompt the user to enter the name of the student to remove
+  name = input("Enter the name of the student to remove: ")
+  # Check if the name is in the students_dict
+  if name in students_dict:
+    # Remove the student's information from all data structures
+    students_list.remove(name)
+    students_dict.pop(name)
+    # Print a success message
+    print(f"Student {name} removed successfully.")
+  else:
+    # Print a message that the student is not found
+    print(f"Student {name} not found.")
+
+# Define a function to display the main menu
+def main_menu():
+  # Print the options for the user
+  print("Welcome to the Student Information Management System.")
+  print("Please choose an option:")
+  print("1. Add a student")
+  print("2. Search for a student")
+  print("3. Remove a student")
+  print("4. Exit the system")
+  # Prompt the user to enter their choice
+  choice = int(input("Enter your choice: "))
+  # Return the choice
+  return choice
+
+# Define a main function to run the system
+def main():
+  # Loop until the user chooses to exit
+  while True:
+    # Get the user's choice from the main menu
+    choice = main_menu()
+    # Perform the corresponding action based on the choice
+    if choice == 1:
+      # Call the add_student function
+      add_student()
+    elif choice == 2:
+      # Call the search_student function
+      search_student()
+    elif choice == 3:
+      # Call the remove_student function
+      remove_student()
+    elif choice == 4:
+      # Break the loop and exit the system
+      print("Thank you for using the system. Goodbye.")
+      break
+    else:
+      # Print an invalid choice message
+      print("Invalid choice. Please try again.")
