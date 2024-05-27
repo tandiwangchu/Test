@@ -22,3 +22,4 @@ if __name__ == "__main__":
     n = int(input("Enter the number of stairs: "))
     result = sol.climbStairs(n)
     print(f"The number of ways to climb {n} stairs is: {result}")
+    
